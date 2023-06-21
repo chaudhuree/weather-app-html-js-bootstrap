@@ -38,12 +38,12 @@ const getFlagImg = async (country) => {
   const countryCode = await getCountryCode(countryName);
 
   if (countryCode) {
-    console.log(`The country code for ${countryName} is ${countryCode}.`);
+    // console.log(`The country code for ${countryName} is ${countryCode}.`);
     const flagImg = `https://flagcdn.com/w640/${countryCode.toLowerCase()}.png`;
 
     return flagImg;
   } else {
-    console.log("Country not found.");
+    // console.log("Country not found.");
     return false;
   }
 };
@@ -71,8 +71,8 @@ class WeatherApp {
   // Display weather data on the page
   displayWeather(value) {
     let { data, flagImg } = value;
-    console.log("weatherData", data);
-    console.log("flag:", flagImg);
+    // console.log("weatherData", data);
+    // console.log("flag:", flagImg);
     let weatherData = data;
     if (!weatherData) {
       mainContainer.innerHTML =

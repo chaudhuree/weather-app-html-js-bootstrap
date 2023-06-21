@@ -7,7 +7,7 @@ function updateClock() {
   hours = hours ? hours : 12;
   var formattedMinutes = minutes.toString().padStart(2, "0");
   var timeString = hours + ":" + formattedMinutes + " " + ampm;
-  console.log("timeString: " + timeString);
+  // console.log("timeString: " + timeString);
 
   document.querySelector(".time-data").innerHTML = timeString;
 }

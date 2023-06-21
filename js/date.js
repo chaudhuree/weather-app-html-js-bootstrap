@@ -39,4 +39,4 @@ const formattedDate = `${day} ${date} ${month}`;
 
 dateContainer.innerHTML = formattedDate;
 // Log the formatted date
-console.log(formattedDate);
+// console.log(formattedDate);
