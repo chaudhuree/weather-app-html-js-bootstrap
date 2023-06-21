@@ -1,1 +1,1 @@
-deployed version link:
+deployed version link: https://chaudhuree-weather-app.netlify.app
