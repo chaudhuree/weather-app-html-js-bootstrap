@@ -1,6 +1,7 @@
 //  required api
 //  https://flagcdn.com/w640/gb.png
 //  https://api.weatherapi.com/v1/current.json?key=${this.apiKey}&q=${city},${country}
+//  https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/current.json?key=${this.apiKey}&q=${city},${country}
 
 // Class definition
 class WeatherApp {
@@ -11,7 +12,7 @@ class WeatherApp {
   async getWeather(city, country) {
     try {
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/current.json?key=${this.apiKey}&q=${city},${country}`
+        `https://api.weatherapi.com/v1/current.json?key=${this.apiKey}&q=${city},${country}`
       );
       const data = await response.json();
       const flagImg = await getFlagImg(country);
@@ -86,4 +87,3 @@ const getFlagImg = async (country) => {
     console.log("Country not found.");
   }
 };
-

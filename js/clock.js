@@ -2,9 +2,11 @@ function updateClock() {
   var currentTime = new Date();
   var hours = currentTime.getHours();
   var minutes = currentTime.getMinutes();
-  // var formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+  var ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12;
+  hours = hours ? hours : 12;
   var formattedMinutes = minutes.toString().padStart(2, "0");
-  var timeString = hours + ":" + formattedMinutes;
+  var timeString = hours + ":" + formattedMinutes + " " + ampm;
   console.log("timeString: " + timeString);
 
   // document.getElementById("clock").innerHTML = timeString;

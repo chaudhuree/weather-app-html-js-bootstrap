@@ -25,6 +25,7 @@ const monthNames = [
   "Dec",
 ];
 
+const dateContainer = document.querySelector(".date-data");
 // Get the current date
 const currentDate = new Date();
 
@@ -36,5 +37,6 @@ const month = monthNames[currentDate.getMonth()];
 // Create the desired date format
 const formattedDate = `${day} ${date} ${month}`;
 
+dateContainer.innerHTML = formattedDate;
 // Log the formatted date
 console.log(formattedDate);
