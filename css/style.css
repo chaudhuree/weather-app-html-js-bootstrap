@@ -21,6 +21,7 @@ body {
   border-radius: 10px;
 }
 
+
 .ch-app-body {
   width: 50%;
   position: absolute;
@@ -75,4 +76,45 @@ svg.svg-inline--fa.fa-clock.fa-w-16 {
   border-radius: 10px;
   color: #b9ff6e;
   padding: 20px 10px;
+}
+
+/* edit button */
+svg.svg-inline--fa.fa-bars.fa-w-14 {
+  color: black;
+  padding: 12px 26px;
+  font-size: 24px;
+}
+
+.modal-title {
+  margin: auto !important;
+}
+.modal-header {
+  border: none !important;
+}
+.modal-content {
+  background: #ffffff80 !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  border-radius: 10px !important;
+}
+
+.glass-button {
+  display: block;
+  padding: 12px 32px;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: black;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.glass-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }

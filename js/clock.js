@@ -9,7 +9,7 @@ function updateClock() {
   var timeString = hours + ":" + formattedMinutes + " " + ampm;
   console.log("timeString: " + timeString);
 
-  // document.getElementById("clock").innerHTML = timeString;
+  document.querySelector(".time-data").innerHTML = timeString;
 }
 
 // Update the clock every second

@@ -27,12 +27,22 @@
       <div class="row">
         <div class="col-md-6 offset-md-3 col-12 ch-app">
           <div class="ch-card ch-app-body text-center py-4">
+            <!-- edit button -->
+            <div class="row">
+              <div class="col d-flex justify-content-end">
+                <i
+                  class="fa-solid fa-bars"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                ></i>
+              </div>
+            </div>
             <!-- country -->
-            <h1 class="fw-bold ch-heading country-data">Bangladesh</h1>
+            <h1 class="fw-bold ch-heading country-data"></h1>
             <!-- time -->
             <p class="ch-time">
-              <i class="fa-light fa-clock"></i
-              ><span class="time-data mx-2">10:12 PM</span>
+              <i class="fa-regular fa-clock"></i
+              ><span class="time-data mx-2"></span>
             </p>
             <!-- date -->
             <div
@@ -41,9 +51,9 @@
               <span class="date-data"></span>
             </div>
             <!-- weather condition -->
-            <p class="weather-condition fw-bold mt-3 fs-2 ch-wc">Sunny</p>
+            <p class="condition-data fw-bold mt-3 fs-2 ch-wc"></p>
             <!-- temperature value -->
-            <h1 class="temp-data ch-temp">31<sup>o</sup></h1>
+            <h1 class="temp-data ch-temp"></h1>
 
             <!-- quotes -->
             <figure class="text-center w-75 m-auto">
@@ -57,12 +67,12 @@
                 class="col-md-4 mb-md-0 offset-md-0 col-sm-8 offset-sm-2 mb-sm-2"
               >
                 <div class="flag">
-                  <i class="fa-thin fa-flag"></i>
-                  <p class="py-2">
+                  <i class="fa-regular fa-flag"></i>
+                  <p class="pt-3">
                     <img
                       width="40px"
                       class="img-fluid img-thumbnail flag-data"
-                      src="https://media.istockphoto.com/id/1061013668/vector/vector-flag-of-the-peoples-republic-of-bangladesh-proportion-3-5-the-national-flag-of.jpg?s=612x612&w=0&k=20&c=2UzlTX9EIPrLJJ9kHcr-VOXvM6FWNWsi3uZmsocshBk="
+                      src=""
                       alt="flag"
                     />
                   </p>
@@ -72,19 +82,73 @@
                 class="col-md-4 mb-md-0 offset-md-0 col-sm-8 offset-sm-2 mb-sm-2"
               >
                 <div class="humidity">
-                  <i class="fa-thin fa-droplet-degree"></i>
-                  <p class="wind-data py-2 humidity-data">88</p>
+                  <i class="fa-regular fa-droplet-degree"></i>
+                  <p class="wind-data pt-3 humidity-data fw-bold"></p>
                 </div>
               </div>
               <div
                 class="col-md-4 mb-md-0 offset-md-0 col-sm-8 offset-sm-2 mb-sm-2"
               >
                 <div class="wind">
-                  <i class="fa-thin fa-wind"></i>
-                  <p class="wind-data py-2">11.9 km/h</p>
+                  <i class="fa-regular fa-wind"></i>
+                  <p class="wind-data-container pt-3 fw-bold"></p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">City/Country</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- form start -->
+            <form>
+              <div class="mb-3">
+                <label for="countryinput" class="form-label">Country</label>
+                <input
+                  type="text"
+                  class="form-control country-data-field"
+                  id="countryinput"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="mb-4">
+                <label for="cityinput" class="form-label">City</label>
+                <input
+                  type="text"
+                  class="form-control city-data-field"
+                  id="cityinput"
+                />
+              </div>
+              <button
+                type="submit"
+                class="glass-button"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                Submit
+              </button>
+            </form>
+            <!-- form end -->
           </div>
         </div>
       </div>
@@ -97,6 +161,6 @@
   ></script>
   <script src="js/quote.js"></script>
   <script src="js/date.js"></script>
-  <!-- <script src="js/clock.js"></script> -->
-  <!-- <script src="./js/script.js"></script> -->
+  <script src="js/clock.js"></script>
+  <script src="./js/script.js"></script>
 </html>
