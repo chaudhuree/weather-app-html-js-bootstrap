@@ -86,3 +86,4 @@ const getFlagImg = async (country) => {
     console.log("Country not found.");
   }
 };
+
