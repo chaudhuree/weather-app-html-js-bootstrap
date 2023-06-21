@@ -88,7 +88,7 @@ class WeatherApp {
       : "notfound";
     conditionContainer.innerHTML = weatherData?.current.condition.text;
     windContainer.innerHTML = `${weatherData?.current.wind_kph} km/h`;
-    humidityContainer.innerHTML = weatherData?.current.humidity;
+    humidityContainer.innerHTML =`${ weatherData?.current.humidity}%`;
     flagContainer.src = flagImg;
     tempContainer.innerHTML = `${weatherData?.current.temp_c}°`;
   }

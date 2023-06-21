@@ -21,7 +21,6 @@ body {
   border-radius: 10px;
 }
 
-
 .ch-app-body {
   width: 50%;
   position: absolute;
@@ -31,7 +30,7 @@ body {
 }
 
 .ch-heading {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .ch-dates {
@@ -43,7 +42,7 @@ body {
   padding: 8px 10px;
 }
 .ch-time {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin-top: 15px;
 }
@@ -52,10 +51,14 @@ svg.svg-inline--fa.fa-clock.fa-w-16 {
 }
 .ch-wc {
   color: #040404ca;
+  font-size: 20px;
+}
+p.quotes-data {
+  font-size: 16px !important;
 }
 .ch-temp {
   color: black;
-  font-size: 100px;
+  font-size: 60px;
   text-align: center;
   margin: auto;
   font-weight: bolder;
