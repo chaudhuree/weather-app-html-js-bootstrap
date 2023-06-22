@@ -14,8 +14,10 @@ const tempContainer = document.querySelector(".temp-data");
 const cityInput = document.querySelector("#cityinput").value;
 const countryInput = document.querySelector(".country-data-field").value;
 const button = document.querySelector(".glass-button");
+let cityname;
+let countryname;
 
-//country code finder
+//country code finder for flag
 async function getCountryCode(countryName) {
   try {
     const response = await fetch("countries.json");
@@ -32,7 +34,7 @@ async function getCountryCode(countryName) {
   }
 }
 
-// country flag generator
+// country flag intializer
 const getFlagImg = async (country) => {
   const countryName = country;
   const countryCode = await getCountryCode(countryName);
@@ -47,6 +49,59 @@ const getFlagImg = async (country) => {
     return false;
   }
 };
+
+// get location from browser
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
+}
+//success callback for location
+async function successCallback(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const apiUrl = `https://api.opencagedata.com/geocode/v1/json?key=9f5df757f865467f81bb6204fe96f871&q=${latitude}+${longitude}`;
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    const city = data.results[0].components.state;
+    const country = data.results[0].components.country;
+
+    // console.log("City: " + city);
+    // console.log("Country: " + country);
+
+    /*
+    if location is enabled then call the weather function with the city and country
+    */
+    weatherCallFunction(city, country);
+  } catch (error) {
+    console.log("Error occurred while fetching location: " + error);
+    mainContainer.innerHTML =
+      "something went wrong,please try again later,for now we are showing Dhaka,BD";
+    setTimeout(() => {
+      weatherCallFunction("Dhaka", "Bangladesh");
+    }, 3000);
+  }
+}
+
+//error callback for location
+function errorCallback(error) {
+  console.log(
+    "Error occurred. Error code: " +
+      error.code +
+      ". Error message: " +
+      error.message
+  );
+  if (error.code === 1) {
+    alert("Please allow location access,for now we are showing Dhaka,BD");
+    weatherCallFunction("Dhaka", "Bangladesh");
+  }
+}
+getLocation();
 
 // Class definition
 class WeatherApp {
@@ -88,7 +143,7 @@ class WeatherApp {
       : "notfound";
     conditionContainer.innerHTML = weatherData?.current.condition.text;
     windContainer.innerHTML = `${weatherData?.current.wind_kph} km/h`;
-    humidityContainer.innerHTML =`${ weatherData?.current.humidity}%`;
+    humidityContainer.innerHTML = `${weatherData?.current.humidity}%`;
     flagContainer.src = flagImg;
     tempContainer.innerHTML = `${weatherData?.current.temp_c}°`;
   }
@@ -112,7 +167,7 @@ const weatherCallFunction = async (city, country) => {
   app.displayWeather(weatherData);
 };
 // weatherCallFunction(city, country);
-weatherCallFunction("Dhaka", "Bangladesh");
+// weatherCallFunction("Dhaka", "Bangladesh");
 
 button.addEventListener("click", (e) => {
   e.preventDefault();
