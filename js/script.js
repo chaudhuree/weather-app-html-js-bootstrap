@@ -98,7 +98,6 @@ function errorCallback(error) {
       error.message
   );
   if (error.code === 1) {
-    
     alert("Please allow location access,for now we are showing Dhaka,BD");
     weatherCallFunction("Dhaka", "Bangladesh");
   } else {
@@ -156,7 +155,12 @@ class WeatherApp {
     conditionContainer.innerHTML = weatherData?.current.condition.text;
     windContainer.innerHTML = `${weatherData?.current.wind_kph} km/h`;
     humidityContainer.innerHTML = `${weatherData?.current.humidity}%`;
-    flagContainer.src = flagImg;
+    flagContainer.innerHTML = `<img
+    width="40px"
+    class="img-fluid img-thumbnail"
+    src=${flagImg}
+    alt="flag"
+  />`;
     tempContainer.innerHTML = `${weatherData?.current.temp_c}°`;
   }
 }
