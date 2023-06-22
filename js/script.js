@@ -5,6 +5,7 @@
 
 // select containers
 const mainContainer = document.querySelector(".ch-app-body");
+const errorContainer = document.querySelector(".error-data");
 const countryContainer = document.querySelector(".country-data");
 const conditionContainer = document.querySelector(".condition-data");
 const windContainer = document.querySelector(".wind-data-container");
@@ -14,8 +15,6 @@ const tempContainer = document.querySelector(".temp-data");
 const cityInput = document.querySelector("#cityinput").value;
 const countryInput = document.querySelector(".country-data-field").value;
 const button = document.querySelector(".glass-button");
-let cityname;
-let countryname;
 
 //country code finder for flag
 async function getCountryCode(countryName) {
@@ -80,9 +79,11 @@ async function successCallback(position) {
     weatherCallFunction(city, country);
   } catch (error) {
     console.log("Error occurred while fetching location: " + error);
-    mainContainer.innerHTML =
+    errorContainer.classList.add("ch-error");
+    errorContainer.innerHTML =
       "something went wrong,please try again later,for now we are showing Dhaka,BD";
     setTimeout(() => {
+      errorContainer.innerHTML = "";
       weatherCallFunction("Dhaka", "Bangladesh");
     }, 3000);
   }
@@ -97,8 +98,19 @@ function errorCallback(error) {
       error.message
   );
   if (error.code === 1) {
+    
     alert("Please allow location access,for now we are showing Dhaka,BD");
     weatherCallFunction("Dhaka", "Bangladesh");
+  } else {
+    errorContainer.classList.add("ch-error");
+    errorContainer.innerHTML =
+      "something went wrong,please try again later,for now we are showing Dhaka,BD";
+
+    setTimeout(() => {
+      errorContainer.innerHTML = "";
+      // errorContainer.classList.remove("ch-error");
+      weatherCallFunction("Dhaka", "Bangladesh");
+    }, 3000);
   }
 }
 getLocation();
@@ -152,6 +164,7 @@ class WeatherApp {
 // Create a new instance of the WeatherApp class
 
 const weatherCallFunction = async (city, country) => {
+  errorContainer.classList.remove("ch-error");
   const apiKey = "d6c3fa7a15384efc97073333232006";
   const app = new WeatherApp(apiKey);
   const weatherData = await app.getWeather(city, country);
