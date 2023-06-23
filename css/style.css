@@ -79,6 +79,7 @@ p.quotes-data {
   border-radius: 10px;
   color: #b9ff6e;
   padding: 20px 10px;
+  display: flex !important;
 }
 
 /* edit button */
@@ -135,6 +136,13 @@ svg.svg-inline--fa.fa-bars.fa-w-14 {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
   backdrop-filter: blur(4px) !important;
   -webkit-backdrop-filter: blur(4px) !important;
-  
-  
+}
+
+@media screen and (max-width: 768px) {
+  .ch-other-values {
+    display: none !important;
+  }
+  .ch-app-body {
+    width: 80% !important;
+  }
 }
